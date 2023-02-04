@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+
+  front_end:
+    build:
+      context: .
+      dockerfile: front_end/Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
